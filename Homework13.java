@@ -2,6 +2,7 @@ import java.awt.geom.Rectangle2D;
 
 public class Homework13 {
 
+
 	/* Write the class Triangle that implements the
 	 * SmithShape interface. All SmithShape triangles have
 	 * one edge that is on the horizontal and are defined by
@@ -14,13 +15,15 @@ public class Homework13 {
 	  * and angle. The x and y coordinates should both be 0.
 	  * Return the Triangle.
 	  */
-	 public static Triangle problem1(int w, int h, double a) {f
-
+	 public static Triangle problem1(int w, int h, double a) {
+		 Triangle t = new Triangle(0, 0, w, h, a);
+		 return t;
 	 }
 
 	 /* Return the area of parameter s
 	  */
 	 public static double problem2(SmithShape s) {
+		 return s.getArea();
 
 	 }
 
@@ -28,6 +31,9 @@ public class Homework13 {
 	  * method of parameter s
 	  */
 	 public static String problem3(SmithShape s) {
+		 Triangle t = (Triangle) s;
+		 return t.toString();
+
 
 	 }
 
@@ -38,6 +44,9 @@ public class Homework13 {
 	  * to 180
 	  */
 	 public static double problem4(SmithShape s, double a) {
+		 Triangle t = (Triangle) s;
+		double last = 180 - t.getAngle() - a;
+		return last;
 
 	 }
 
@@ -45,7 +54,8 @@ public class Homework13 {
 	  * toSquare method of parameter s
 	  */
 	 public static Rectangle2D problem5(SmithShape s) {
-
+		 Triangle t = (Triangle) s;
+		 return t.toSquare();
 	 }
 
 	 public static void main(String[] args) {
@@ -60,6 +70,7 @@ public class Homework13 {
 			 System.out.println("Fail 1.2");
 		 } else if (s.getWidth() != 5) {
 			 passed = false;
+			 System.out.println(s.getWidth());
 			 System.out.println("Fail 1.3");
 		 } else if (s.getHeight() != 10) {
 			 passed = false;
